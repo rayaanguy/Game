@@ -6,6 +6,7 @@ window.addEventListener('load', function (){
 
  const game = new game(canvas.width, canvas.height);
  console.log(game);
+ 
 });
 
 class game {
@@ -21,4 +22,10 @@ class game {
             this.player.draw();
         }
     }
+    
+}
+function animate() {
+    game.draw(ctx);
+    requestAnimationFrame(animate);
+    animate() ;
 }
