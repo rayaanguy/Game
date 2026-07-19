@@ -1,25 +1,35 @@
-window.addEventListener('load', function (){
- const canvas = document.getElementById('hi');
- const ctx = canvas.getContext('2d');
- canvas.width = 500;
- canvas.height = 500;
+import { player } from './player.js';
 
- const game = new game(canvas.width, canvas.height);
- console.log(game);
+window.addEventListener('load', function () {
+  const canvas = document.getElementById('hi');
+  const ctx = canvas.getContext('2d');
+  canvas.width = 500;
+  canvas.height = 500;
+
+  const game = new Game(canvas.width, canvas.height);
+  console.log(game);
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    game.update();
+    game.draw(ctx);
+    requestAnimationFrame(animate);
+  }
+
+  
 });
 
-class game {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
-    }
-    update () {
+class Game {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+    this.player = new player(this);
+  }
 
-    }
-    draw(){
-        if (this.player) {
-            this.player.draw();
-        }
-    }
-    function 
+  update() {}
+
+
+  draw(context) {
+    this.player.draw(context);
+  }
 }
