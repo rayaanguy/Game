@@ -3,7 +3,7 @@ export class player {
     this.game = game;
     this.width = 100;
     this.height = 91.3;
-    this.x = 0;
+    this.x = 200;
     this.y = this.game.height - this.height;
     this.image = new Image();
     this.image.src = 'player.png';
@@ -11,15 +11,9 @@ export class player {
 
   update() {}
 
-  draw(context) {
-    if (this.image.complete && this.image.naturalWidth > 0) {
-      context.drawImage(this.image, this.x, this.y, this.width, this.height);
-    } else {
+  draw(ctx) {
       context.fillStyle = 'black';
       context.fillRect(this.x, this.y, this.width, this.height);
     }
   }
 }
-
-
-

@@ -32,4 +32,5 @@ class Game {
   draw(context) {
     this.player.draw(context);
   }
+  
 }
